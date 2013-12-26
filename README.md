@@ -30,6 +30,8 @@ Or install it yourself as:
 How to use
 ----------
 
+See this script:
+
   require "webrick"
   require "webrocket"
   
