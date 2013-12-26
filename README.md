@@ -4,6 +4,8 @@ WEBRocket
 WebSocket extension for WEBrick.
 This library is under development.
 
+WebSocket specification is based on [RFC6455](http://www.rfc-editor.org/rfc/rfc6455.txt).
+
 
 Requirements
 ------------
