@@ -1,0 +1,29 @@
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script type="text/javascript"><!--
+function escapeHTML(str){
+  return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+var conn = new WebSocket("ws://localhost:10080/echo", "echo");
+conn.onopen = function(){
+  var elem = document.getElementById("server");
+  elem.innerHTML = "<b>connected</b><br>\n" + elem.innerHTML;
+};
+conn.onerror = function(error){
+  var elem = document.getElementById("server");
+  elem.innerHTML = "<b>WebSocket error: " + escapeHTML(error) + "</b><br>\n" + elem.innerHTML;
+};
+conn.onmessage = function(v){
+  var elem = document.getElementById("server");
+  elem.innerHTML = escapeHTML(v.data) + "<br>\n" + elem.innerHTML;
+}
+--></script>
+</head>
+<body>
+<input id="text" value="hello!"/><button onclick="conn.send(document.getElementById('text').value);">send</button>
+<p id="server">
+</p>
+</body>
+</html>
