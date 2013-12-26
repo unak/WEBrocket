@@ -16,47 +16,45 @@ Installation
 
 Add this line to your application's Gemfile:
 
-  gem 'WEBrocket'
+    gem 'WEBrocket'
 
 And then execute:
 
-  $ bundle
+    $ bundle
 
 Or install it yourself as:
 
-  $ gem install WEBrocket
+    $ gem install WEBrocket
 
 
 How to use
 ----------
 
-See this script:
-
-  require "webrick"
-  require "webrocket"
-  
-  # write listner
-  class Listener
-    def on_open(websocket)
-      # do somthing
+    require "webrick"
+    require "webrocket"
+    
+    # write listner
+    class Listener
+      def on_open(websocket)
+        # do somthing
+      end
+    
+      def on_close(websocket)
+        # do somthing
+      end
+    
+      def on_recv(websocket, data, type)
+        # do something
+      end
+    
+      def on_shutdown
+        # do something
+      end
     end
-  
-    def on_close(websocket)
-      # do somthing
-    end
-  
-    def on_recv(websocket, data, type)
-      # do something
-    end
-  
-    def on_shutdown
-      # do something
-    end
-  end
-  
-  server = WEBrick::HTTPServer.new
-  server.mount_websocket("sample", Listener.new, "test")
-  server.start
+    
+    server = WEBrick::HTTPServer.new
+    server.mount_websocket("sample", Listener.new, "test")
+    server.start
 
 See sample directory for more details.
 
