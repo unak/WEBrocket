@@ -1,0 +1,47 @@
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>chat sample</title>
+<script type="text/javascript"><!--
+var conn;
+
+function escapeHTML(str) {
+  return str.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function login() {
+  console.log("login");
+  var user = document.getElementById("text").value;
+  if (user != "") {
+    document.getElementById("text").value = "";
+    document.getElementById("send").innerHTML = "send";
+    document.getElementById("send").setAttribute("onclick", "message();");
+
+    conn = new WebSocket("ws://localhost:10080/chat", "chat");
+    conn.onopen = function() {
+      conn.send("\uFEFF" + user);
+    };
+    conn.onerror = function(error) {
+      var elem = document.getElementById("server");
+      elem.innerHTML = "<b>WebSocket error: " + escapeHTML(error) + "</b><br>\n" + elem.innerHTML;
+    };
+    conn.onmessage = function(v) {
+      var elem = document.getElementById("server");
+      elem.innerHTML = escapeHTML(v.data) + "<br>\n" + elem.innerHTML;
+    };
+  }
+}
+
+function message() {
+  console.log("message");
+  conn.send(document.getElementById("text").value);
+  document.getElementById("text").value = "";
+}
+--></script>
+</head>
+<body>
+<input id="text" value=""/><button id="send" onclick="login();">login</button>
+<p id="server">
+</p>
+</body>
+</html>
