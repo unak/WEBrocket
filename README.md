@@ -1,4 +1,4 @@
-WEBRocket
+WEBrocket
 =========
 
 WebSocket extension for WEBrick.
@@ -59,6 +59,13 @@ How to use
     server.start
 
 See sample directory for more details.
+
+
+Limitations
+-----------
+
++ Fragmentation is not supported yet.
++ TLS is not supported yet.
 
 
 License
