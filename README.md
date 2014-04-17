@@ -21,7 +21,7 @@ Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'WEBrocket'
+    gem 'webrocket'
 
 And then execute:
 

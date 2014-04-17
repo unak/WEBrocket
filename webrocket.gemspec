@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["usa@garbagecollect.jp"]
   spec.description   = %q{WebSocket extension for WEBrick}
   spec.summary       = %q{WebSocket extension for WEBrick}
-  spec.homepage      = "https://github.com/unak/WEBRocket"
+  spec.homepage      = "https://github.com/unak/WEBrocket"
   spec.license       = "BSD-2-Clause"
 
   spec.files         = `git ls-files`.split($/)
