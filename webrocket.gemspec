@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'webrocket/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "WEBrocket"
+  spec.name          = "webrocket"
   spec.version       = WEBrocket::VERSION
   spec.authors       = ["U.Nakamura"]
   spec.email         = ["usa@garbagecollect.jp"]
