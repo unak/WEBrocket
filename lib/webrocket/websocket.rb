@@ -60,7 +60,7 @@ module WEBrocket
     end
 
     def on_shutdown
-      send_close_frame
+      send_close_frame unless @sock.closed?
       @listener.on_shutdown if @listener.respond_to?(:on_shutdown)
     end
 
