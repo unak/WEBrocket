@@ -1,3 +1,6 @@
+[![Build Status](https://img.shields.io/travis/unak/WEBrocket.svg)](https://travis-ci.org/unak/WEBrocket)
+[![Version     ](https://img.shields.io/gem/v/webrocket.svg)](https://rubygems.org/gems/webrocket)
+
 WEBrocket
 =========
 
